@@ -246,6 +246,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114548389587251594, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548389587251594, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452781609408622598, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2452781609408622598, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752778393014634474, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752778393014634474, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752778393014634474, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752778393014634474, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989115320671016246, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107851983005537229, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078533857091938306, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7473983597001555211, guid: d03cb721bf08e4a04a35396b1ad79923, type: 3}
       propertyPath: HideBehavior.InstantAnimation
       value: 1
