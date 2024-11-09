@@ -5,6 +5,12 @@ namespace Scr.Scripts.UI.View
 {
     public class MainView : UIView
     {
+        protected override void OnShown()
+        {
+            base.OnShown();
+            GameController.Instance.SetDemoAxieGroup(true);
+        }
+
         public void BTN_Setting()
         {
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.SettingPopup);

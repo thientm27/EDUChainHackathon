@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -7,58 +8,28 @@ using Newtonsoft.Json;
 using Scr.Scripts.UI.Popups;
 using Scr.Scripts.UI.View;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Scr.Scripts.GameScene
 {
     public class GameController : ManualSingletonMono<GameController>
     {
+        [Header("Config")]
+        [SerializeField] private float playerMoveSpeed;
+
+        [SerializeField] private float enemyMoveSpeed;
+
         [Header("AxieControl")]
         [SerializeField] private GameObject demoAxieGroup;
 
-        [SerializeField] private GameObject                               selectingAxieGroup;
-        [SerializeField] private GameObject                               currentSelectAxieModel;
+        [SerializeField] private GameObject selectingAxieGroup;
+        [SerializeField] private GameObject currentSelectAxieModel;
+
         [SerializeField] private SerializedDictionary<string, GameObject> axieModelConfig;
 
+        [SerializeField] private Transform playerStartPosition;
+
         private string _userAxieSelected;
-
-        public void SetDemoAxieGroup(bool isActive)
-        {
-            demoAxieGroup.SetActive(isActive);
-        }
-
-        public void SetSelectingAxieGroup(bool isActive)
-        {
-            selectingAxieGroup.SetActive(isActive);
-            if (!isActive)
-            {
-                if (currentSelectAxieModel)
-                {
-                    SimplePool.Despawn(currentSelectAxieModel);
-                }
-            }
-        }
-
-        public void SetSelectingAxie(string nameAxie)
-        {
-            _userAxieSelected = nameAxie;
-            if (axieModelConfig.TryGetValue(nameAxie, out var modelAxie))
-            {
-                if (currentSelectAxieModel)
-                {
-                    SimplePool.Despawn(currentSelectAxieModel);
-                }
-
-                currentSelectAxieModel =
-                    SimplePool.Spawn(modelAxie, selectingAxieGroup.transform.position, Quaternion.identity);
-                currentSelectAxieModel.transform.SetParent(selectingAxieGroup.transform);
-                currentSelectAxieModel.transform.localScale = Vector3.one;
-                currentSelectAxieModel.transform.localRotation   = Quaternion.identity;
-            }
-            else
-            {
-                Debug.Log("NOT FOUND FOR: " + nameAxie);
-            }
-        }
 
         [Header("GameCore")]
         [SerializeField] private TextAsset jsonQuestionData;
@@ -83,6 +54,24 @@ namespace Scr.Scripts.GameScene
             ConvertJsonToQuestionData(jsonQuestionData.text);
             ShuffleQuestionBank();
             DisplayQuestion(_currentQuestion);
+
+            // TO MOVE
+
+            if (axieModelConfig.TryGetValue(_userAxieSelected, out var modelAxie))
+            {
+                if (currentSelectAxieModel)
+                {
+                    SimplePool.Despawn(currentSelectAxieModel);
+                }
+
+                currentSelectAxieModel =
+                    SimplePool.Spawn(modelAxie, playerStartPosition.transform.position, Quaternion.identity);
+                currentSelectAxieModel.transform.SetParent(playerStartPosition.transform);
+                currentSelectAxieModel.transform.localScale    = Vector3.one * 0.5f;
+                currentSelectAxieModel.transform.localRotation = Quaternion.identity;
+            }
+
+            isMoving = true;
         }
 
         public void NextQuestion()
@@ -174,6 +163,57 @@ namespace Scr.Scripts.GameScene
                 correctAns = _correctAns,
                 maxQuest   = _questionData.Count
             });
+        }
+
+        public void SetDemoAxieGroup(bool isActive)
+        {
+            demoAxieGroup.SetActive(isActive);
+        }
+
+        public void SetSelectingAxieGroup(bool isActive)
+        {
+            selectingAxieGroup.SetActive(isActive);
+            if (!isActive)
+            {
+                if (currentSelectAxieModel)
+                {
+                    SimplePool.Despawn(currentSelectAxieModel);
+                }
+            }
+        }
+
+        public void SetSelectingAxie(string nameAxie)
+        {
+            _userAxieSelected = nameAxie;
+            if (axieModelConfig.TryGetValue(nameAxie, out var modelAxie))
+            {
+                if (currentSelectAxieModel)
+                {
+                    SimplePool.Despawn(currentSelectAxieModel);
+                }
+
+                currentSelectAxieModel =
+                    SimplePool.Spawn(modelAxie, selectingAxieGroup.transform.position, Quaternion.identity);
+                currentSelectAxieModel.transform.SetParent(selectingAxieGroup.transform);
+                currentSelectAxieModel.transform.localScale    = Vector3.one;
+                currentSelectAxieModel.transform.localRotation = Quaternion.identity;
+            }
+            else
+            {
+                Debug.Log("NOT FOUND FOR: " + nameAxie);
+            }
+        }
+
+        public bool isMoving;
+
+        private void Update()
+        {
+            if (isMoving)
+            {
+                var newPos = currentSelectAxieModel.transform.position;
+                newPos.x                                  += playerMoveSpeed * Time.deltaTime;
+                currentSelectAxieModel.transform.position =  newPos;
+            }
         }
     }
 
