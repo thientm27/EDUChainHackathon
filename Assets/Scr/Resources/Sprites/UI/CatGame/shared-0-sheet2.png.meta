@@ -353,6 +353,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Bubble
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 314
+        width: 193
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f366dcd32ef80042b167c864a8fcaa7
+      internalID: 1194295674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -365,6 +386,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Book: -1161748564
+      Bubble: 1194295674
       shared-0-sheet2_0: 1309911692
       shared-0-sheet2_1: -1404535825
       shared-0-sheet2_2: 29723818

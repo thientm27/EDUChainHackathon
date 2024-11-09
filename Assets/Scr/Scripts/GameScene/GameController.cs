@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using Imba.UI;
 using Imba.Utils;
 using Newtonsoft.Json;
@@ -12,8 +12,50 @@ namespace Scr.Scripts.GameScene
 {
     public class GameController : ManualSingletonMono<GameController>
     {
-        [SerializeField] private TextAsset          jsonQuestionData;
-        private                  List<QuestionData> _questionData;
+        [Header("AxieControl")]
+        [SerializeField] private GameObject demoAxieGroup;
+
+        [SerializeField] private GameObject                               selectingAxieGroup;
+        [SerializeField] private GameObject                               currentSelectAxieModel;
+        [SerializeField] private SerializedDictionary<string, GameObject> axieModelConfig;
+
+        private string _userAxieSelected;
+
+        public void SetDemoAxieGroup(bool isActive)
+        {
+            demoAxieGroup.SetActive(isActive);
+        }
+
+        public void SetSelectingAxieGroup(bool isActive)
+        {
+            selectingAxieGroup.SetActive(isActive);
+        }
+
+        public void SetSelectingAxie(string nameAxie)
+        {
+            _userAxieSelected = nameAxie;
+            if (axieModelConfig.TryGetValue(nameAxie, out var modelAxie))
+            {
+                if (currentSelectAxieModel)
+                {
+                    SimplePool.Despawn(currentSelectAxieModel);
+                }
+
+                currentSelectAxieModel =
+                    SimplePool.Spawn(modelAxie, selectingAxieGroup.transform.position, Quaternion.identity);
+                currentSelectAxieModel.transform.SetParent(selectingAxieGroup.transform);
+                currentSelectAxieModel.transform.localScale = Vector3.one;
+            }
+            else
+            {
+                Debug.Log("NOT FOUND FOR: " + nameAxie);
+            }
+        }
+
+        [Header("GameCore")]
+        [SerializeField] private TextAsset jsonQuestionData;
+
+        private List<QuestionData> _questionData;
 
         private QuizView _quizView;
         private int      _correctAns      = 0;
@@ -24,7 +66,6 @@ namespace Scr.Scripts.GameScene
         {
             UIManager.Instance.ViewManager.ShowView(UIViewName.MainView);
             _quizView = UIManager.Instance.ViewManager.GetViewByName<QuizView>(UIViewName.QuizView);
-            InitGame();
         }
 
         public void InitGame()
@@ -65,7 +106,7 @@ namespace Scr.Scripts.GameScene
         {
             for (int i = _questionData.Count - 1; i > 0; i--)
             {
-                int randomIndex = UnityEngine.Random.Range(0, i + 1);
+                int randomIndex = Random.Range(0, i + 1);
                 (_questionData[i], _questionData[randomIndex]) = (_questionData[randomIndex], _questionData[i]);
             }
         }
@@ -97,6 +138,7 @@ namespace Scr.Scripts.GameScene
 
         public IEnumerator CorrectAnsHandler()
         {
+            _correctAns++;
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
             yield return new WaitForSeconds(0.5f);

@@ -1,4 +1,5 @@
 using Imba.UI;
+using Scr.Scripts.GameScene;
 
 namespace Scr.Scripts.UI.View
 {
@@ -11,7 +12,9 @@ namespace Scr.Scripts.UI.View
 
         public void BtnStart()
         {
-            UIManager.Instance.ViewManager.HideView(UIViewName.MainView);
+            GameController.Instance.SetDemoAxieGroup(false);
+            GameController.Instance.SetSelectingAxieGroup(true);
+            Hide();
             UIManager.Instance.ViewManager.ShowView(UIViewName.MenuView);
         }
 

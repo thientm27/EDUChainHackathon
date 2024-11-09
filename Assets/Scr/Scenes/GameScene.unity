@@ -541,6 +541,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1410670351943889302, guid: 92302d1ec40ad8247be633e102c0e101, type: 3}
   m_PrefabInstance: {fileID: 405625131}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437582824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437582825}
+  m_Layer: 0
+  m_Name: SelectingCharGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &437582825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437582824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7, y: -1.42, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &441265592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,6 +1296,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462c9510c0484d9787d37b0b1586400e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  demoAxieGroup: {fileID: 1076843647}
+  selectingAxieGroup: {fileID: 437582824}
+  currentSelectAxieModel: {fileID: 0}
+  axieModelConfig:
+    _serializedList:
+    - Key: Allue
+      Value: {fileID: 8385485194160955958, guid: 399f393ca63d97842a70baabbf9b4af2, type: 3}
+    - Key: Auesitle
+      Value: {fileID: 6105570752520268355, guid: 7fef00af7984105419c9b28546fc0386, type: 3}
+    - Key: Baqua
+      Value: {fileID: 4925529841250905819, guid: 92302d1ec40ad8247be633e102c0e101, type: 3}
+    - Key: Beir
+      Value: {fileID: 4223918671617363507, guid: 1615c9ddbb9b50a488d57fba99e0dbcf, type: 3}
+    - Key: Dupomo
+      Value: {fileID: 7999843697970568382, guid: 1af1882bbbd7f494589ae534b8ab853e, type: 3}
+    - Key: GeDusk
+      Value: {fileID: 6526876059364989638, guid: da50dc660b734e249a458eddfceeee7a, type: 3}
+    - Key: Obube
+      Value: {fileID: 7665234496235406638, guid: 3729bb569dc236d4ebfd2bd30e2b7dd1, type: 3}
+    - Key: Plyh
+      Value: {fileID: 1259919541264089560, guid: a305a1f5d7f20f8488a353b79740b7aa, type: 3}
+    - Key: Pomo
+      Value: {fileID: 4959841717462813915, guid: 73ee6916e4866924e91a1808743e0950, type: 3}
+    - Key: Risir
+      Value: {fileID: 4680002852122772317, guid: fea46d24f03e28c49b19ad2b950c3d97, type: 3}
+    - Key: Spotine
+      Value: {fileID: 3806887095362214452, guid: 34a7185bb838e7d49bdb933e6062030f, type: 3}
+    - Key: Wene
+      Value: {fileID: 5130581329006268190, guid: 850c7cf6277ab5646863abe8db2a2ee1, type: 3}
   jsonQuestionData: {fileID: 4900000, guid: e197499277a73ac46ae90b05b9b2c682, type: 3}
 --- !u!114 &1625031344
 MonoBehaviour:
@@ -1677,6 +1737,7 @@ SceneRoots:
   - {fileID: 1768989494}
   - {fileID: 396106090}
   - {fileID: 1076843648}
+  - {fileID: 437582825}
   - {fileID: 222485388}
   - {fileID: 1625031342}
   - {fileID: 515583026}
