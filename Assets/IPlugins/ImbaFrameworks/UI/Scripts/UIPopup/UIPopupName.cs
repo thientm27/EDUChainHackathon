@@ -15,7 +15,8 @@ namespace Imba.UI
         SettingPopup  = 2,
         RulePopup     = 3,
         XuatQuanPopup = 4,
-        RollDicePopup      = 5,
+        RollDicePopup = 5,
+        EndGamePopup  = 6,
 
     }
 }

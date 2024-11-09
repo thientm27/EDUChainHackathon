@@ -123,12 +123,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shared-0-sheet1_0
+      name: HealthBG
       rect:
         serializedVersion: 2
         x: 0
         y: 392
-        width: 183
+        width: 179
         height: 632
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -291,13 +291,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shared-0-sheet1_2
+      name: box
       rect:
         serializedVersion: 2
-        x: 179
-        y: 105
-        width: 297
-        height: 319
+        x: 182
+        y: 115
+        width: 292
+        height: 306
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,11 +324,11 @@ TextureImporter:
     nameFileIdTable:
       ButtonBlue: -1996267824
       CatCoin: -123205299
+      HealthBG: -2030468679
       HearDeactive: -416475741
       HeartActive: 423288500
-      shared-0-sheet1_0: -2030468679
+      box: 490742862
       shared-0-sheet1_11: -577255430
-      shared-0-sheet1_2: 490742862
       shared-0-sheet1_5: -600395542
       shared-0-sheet1_6: -1059872534
       shared-0-sheet1_7: 1184110905

@@ -2271,9 +2271,9 @@ MonoBehaviour:
       Event:
         m_PersistentCalls:
           m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: Scr.Scripts.UI.View.MainView, Assembly-CSharp
-            m_MethodName: BtnStart
+          - m_Target: {fileID: 3290218186785439428}
+            m_TargetAssemblyTypeName: Scr.Scripts.UI.View.MenuView, Assembly-CSharp
+            m_MethodName: BtnPlay
             m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}

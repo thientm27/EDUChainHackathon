@@ -144,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shared-0-sheet0_1
+      name: EndGame
       rect:
         serializedVersion: 2
         x: 575
@@ -153,7 +153,7 @@ TextureImporter:
         height: 752
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 217, y: 303, z: 146, w: 302}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -186,13 +186,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shared-0-sheet0_3
+      name: anserBox
       rect:
         serializedVersion: 2
-        x: 1785
-        y: 3007
-        width: 263
-        height: 1089
+        x: 1786
+        y: 3003
+        width: 260
+        height: 1092
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,16 +207,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shared-0-sheet0_4
+      name: Question
       rect:
         serializedVersion: 2
         x: 0
-        y: 639
-        width: 366
+        y: 641
+        width: 364
         height: 1410
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 248, y: 376, z: 54, w: 471}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -231,9 +231,9 @@ TextureImporter:
       name: shared-0-sheet0_5
       rect:
         serializedVersion: 2
-        x: 363
+        x: 364
         y: 1528
-        width: 452
+        width: 451
         height: 523
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -254,7 +254,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1401
         y: 959
-        width: 266
+        width: 260
         height: 1092
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -273,10 +273,10 @@ TextureImporter:
       name: ButtonRed
       rect:
         serializedVersion: 2
-        x: 1774
-        y: 955
-        width: 263
-        height: 1099
+        x: 1788
+        y: 962
+        width: 260
+        height: 1092
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,7 +359,7 @@ TextureImporter:
         serializedVersion: 2
         x: 831
         y: 1451
-        width: 569
+        width: 567
         height: 614
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -388,13 +388,13 @@ TextureImporter:
       ButtonGreen: -174688728
       ButtonRed: -1932572419
       Clock: -1593720252
+      EndGame: 1019169665
+      Question: -556719291
       SelectCharacters: -1594342439
+      anserBox: 1066836372
       shared-0-sheet0_0: 2037748298
-      shared-0-sheet0_1: 1019169665
       shared-0-sheet0_10: -2032383856
       shared-0-sheet0_11: -1499182257
-      shared-0-sheet0_3: 1066836372
-      shared-0-sheet0_4: -556719291
       shared-0-sheet0_5: 74909332
       shared-0-sheet0_9: 1647368920
   mipmapLimitGroupName: 

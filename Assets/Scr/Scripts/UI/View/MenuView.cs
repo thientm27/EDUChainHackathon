@@ -4,21 +4,17 @@ namespace Scr.Scripts.UI.View
 {
     public class MenuView : UIView
     {
-        public void BtnXuatQuan()
+        public void BTN_Setting()
         {
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.XuatQuanPopup);
+            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.SettingPopup);
         }
 
-        public void BtnScan()
+        public void BtnPlay()
         {
             Hide();
-            UIManager.Instance.ViewManager.ShowView(UIViewName.ScannerView);
+            UIManager.Instance.ViewManager.ShowView(UIViewName.QuizView);
         }
 
-        public void BtnRollDice()
-        {
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.RollDicePopup);
-        }
         public void BtnEndGame()
         {
             Hide();

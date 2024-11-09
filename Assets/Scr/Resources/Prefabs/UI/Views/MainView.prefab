@@ -2688,6 +2688,10 @@ PrefabInstance:
       propertyPath: OnClick.OnTrigger.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1437532950676892075}
+    - target: {fileID: 6138793774806677541, guid: 18f4ae6442abb884ca39d5e53ed3c01a, type: 3}
+      propertyPath: OnClick.OnTrigger.Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BTN_Setting
+      objectReference: {fileID: 0}
     - target: {fileID: 8647125269866733533, guid: 18f4ae6442abb884ca39d5e53ed3c01a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
