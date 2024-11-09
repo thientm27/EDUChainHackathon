@@ -52,6 +52,7 @@ namespace Scr.Scripts.GameScene
                     SimplePool.Spawn(modelAxie, selectingAxieGroup.transform.position, Quaternion.identity);
                 currentSelectAxieModel.transform.SetParent(selectingAxieGroup.transform);
                 currentSelectAxieModel.transform.localScale = Vector3.one;
+                currentSelectAxieModel.transform.localRotation   = Quaternion.identity;
             }
             else
             {
