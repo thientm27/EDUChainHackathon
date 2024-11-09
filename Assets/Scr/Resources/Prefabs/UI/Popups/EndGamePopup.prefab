@@ -402,8 +402,8 @@ MonoBehaviour:
     StartPosition: {x: 0, y: 0, z: 0}
     StartRotation: {x: 0, y: 0, z: 0}
     StartScale: {x: 1, y: 1, z: 1}
-  correctAnsText: {fileID: 0}
-  tokenWinText: {fileID: 0}
+  correctAnsText: {fileID: 3114313063635007059}
+  tokenWinText: {fileID: 3106819407218949827}
 --- !u!1 &4140696397129816924
 GameObject:
   m_ObjectHideFlags: 0

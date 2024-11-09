@@ -14,6 +14,7 @@ namespace Scr.Scripts.UI.View
     {
         [Header("QUESTION GROUP")]
         [SerializeField] private GameObject questionContainer;
+
         [SerializeField] private CanvasGroup canvasQuestionGroup;
 
         [SerializeField] private TextMeshProUGUI       questionText;
@@ -31,16 +32,18 @@ namespace Scr.Scripts.UI.View
         [SerializeField] private Sprite          healthInActive;
         [SerializeField] private TextMeshProUGUI currentQuestionProcess;
         [SerializeField] private TextMeshProUGUI clockText;
-        private QuestionData _currentQuest;
+        private                  QuestionData    _currentQuest;
 
         public void SetQuestionProcess(int currentQuest, int maxQuest)
         {
             currentQuestionProcess.text = "Questions: " + currentQuest + " of " + maxQuest;
         }
+
         public void SetClock(int currentTime)
         {
             clockText.text = currentTime.ToString();
         }
+
         public void SetHealth(int health)
         {
             for (int i = 0; i < healthBarIc.Count; i++)
@@ -68,6 +71,7 @@ namespace Scr.Scripts.UI.View
                 questionContainer.transform.localScale = Vector3.one;
             });
         }
+
         public void ShowQuestion(QuestionData questionData)
         {
             Debug.Log(questionData.correctAnswer);
@@ -114,9 +118,16 @@ namespace Scr.Scripts.UI.View
                 answerRender[index].sprite = wrongRender;
                 int correctIndex = answerText.FindIndex(a => a.text == _currentQuest.correctAnswer);
                 answerRender[correctIndex].sprite = correctRender;
+
+                PlayScalerAnim(answerRender[correctIndex].transform);
                 GameController.Instance.ChooseWrongAnswer();
             }
+        }
 
+        public void PlayScalerAnim(Transform targetTranform)
+        {
+            targetTranform.DOScale(1.1f, 0.2f)
+                .OnComplete(() => { targetTranform.DOScale(1f, 0.1f).SetEase(Ease.Linear); }).SetEase(Ease.Linear);
         }
     }
 
