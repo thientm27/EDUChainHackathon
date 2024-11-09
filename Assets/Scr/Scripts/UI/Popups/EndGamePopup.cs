@@ -15,15 +15,21 @@ namespace Scr.Scripts.UI.Popups
     {
         [SerializeField] private TextMeshProUGUI correctAnsText;
         [SerializeField] private TextMeshProUGUI tokenWinText;
-        protected override void OnShown()
+        protected override void OnShowing()
         {
-            base.OnShown();
+            base.OnShowing();
             if (Parameter != null)
             {
                 var pr = (EndGameParam)Parameter;
                 tokenWinText.text   = pr.tokenWin.ToString("F2"); // Rounded to two decimal places
                 correctAnsText.text = "Corrected: " + pr.correctAns + " of " + pr.maxQuest;
             }
+        }
+
+        protected override void OnShown()
+        {
+            base.OnShown();
+           
         }
 
         public void ButtonClaim()
