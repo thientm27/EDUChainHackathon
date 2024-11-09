@@ -291,15 +291,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shared-0-sheet0_9
+      name: StaringEf
       rect:
         serializedVersion: 2
         x: 0
         y: 103
         width: 423
         height: 408
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48529086, y: 0.4993067}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,12 +391,12 @@ TextureImporter:
       EndGame: 1019169665
       Question: -556719291
       SelectCharacters: -1594342439
+      StaringEf: 1647368920
       anserBox: 1066836372
       shared-0-sheet0_0: 2037748298
       shared-0-sheet0_10: -2032383856
       shared-0-sheet0_11: -1499182257
       shared-0-sheet0_5: 74909332
-      shared-0-sheet0_9: 1647368920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
