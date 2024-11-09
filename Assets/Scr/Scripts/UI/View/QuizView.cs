@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Imba.UI;
 using Newtonsoft.Json;
 using Scr.Scripts.GameScene;
@@ -13,6 +14,7 @@ namespace Scr.Scripts.UI.View
     {
         [Header("QUESTION GROUP")]
         [SerializeField] private GameObject questionContainer;
+        [SerializeField] private CanvasGroup canvasQuestionGroup;
 
         [SerializeField] private TextMeshProUGUI       questionText;
         [SerializeField] private List<Image>           answerRender;
@@ -56,12 +58,21 @@ namespace Scr.Scripts.UI.View
 
         public void HideQuestion()
         {
-            questionContainer.SetActive(false);
+            canvasQuestionGroup.DOFade(0f, 0.2f).OnComplete(() =>
+            {
+                questionContainer.transform.localScale = Vector3.one;
+            });
+            questionContainer.transform.DOScale(0.2f, 0.2f).OnComplete(() =>
+            {
+                questionContainer.SetActive(false);
+                questionContainer.transform.localScale = Vector3.one;
+            });
         }
         public void ShowQuestion(QuestionData questionData)
         {
             Debug.Log(questionData.correctAnswer);
             questionContainer.SetActive(true);
+            canvasQuestionGroup.alpha = 1f;
             foreach (var btn in answerButton)
             {
                 btn.interactable = true;

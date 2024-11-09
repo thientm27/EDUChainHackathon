@@ -774,6 +774,7 @@ MonoBehaviour:
   ShowBackBtn: 0
   Title: 
   questionContainer: {fileID: 4157030335610925509}
+  canvasQuestionGroup: {fileID: 7958092398637976079}
   questionText: {fileID: 7759282065708660738}
   answerRender:
   - {fileID: 5420432753769913613}
@@ -811,6 +812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3184083959770509044}
   - component: {fileID: 1068867044290024250}
+  - component: {fileID: 7958092398637976079}
   m_Layer: 5
   m_Name: QuestionContainer
   m_TagString: Untagged
@@ -860,6 +862,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &7958092398637976079
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157030335610925509}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4502011560492226502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,7 +1387,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -5
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -1658,6 +1672,10 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_wordSpacing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -2912,6 +2930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_wordSpacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
@@ -4063,6 +4085,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_wordSpacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
@@ -5197,26 +5223,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 6920442627341767276, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_wordSpacing
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
-      propertyPath: m_text
-      value: 1234
-      objectReference: {fileID: 0}
-    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
-    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7603396354194001843, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: OnClick.OnTrigger.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
