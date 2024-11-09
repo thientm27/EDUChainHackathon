@@ -569,6 +569,7 @@ Transform:
   m_Children:
   - {fileID: 6724728578752303780}
   - {fileID: 2622416631330037510}
+  - {fileID: 7890840197515977262}
   - {fileID: 437032598604209763}
   - {fileID: 8588464700558576829}
   - {fileID: 8203290038269224248}
@@ -1182,8 +1183,8 @@ MonoBehaviour:
         Duration: 1
       Scale:
         AnimationType: 1
-        Enabled: 0
-        From: {x: 1, y: 1, z: 1}
+        Enabled: 1
+        From: {x: 0.5, y: 0.5, z: 0.5}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
         UseCustomFromAndTo: 0
@@ -1445,6 +1446,203 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!1 &3217949550446979497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7890840197515977262}
+  - component: {fileID: 5167831961922003703}
+  m_Layer: 5
+  m_Name: EndgamePopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7890840197515977262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217949550446979497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4692691571151420}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5167831961922003703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217949550446979497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8b55664818440d6b042ff3d1a87e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopupName: 6
+  AfterHideBehaviour: 0
+  AlwaysOnTop: 1
+  DeactiveGameObjectWhenHide: 0
+  ShowOverlay: 1
+  CloseByClickOutside: 0
+  CloseByBackButton: 1
+  DestroyOnLoadScene: 1
+  FadeContent: 1
+  ShowBehavior:
+    InstantAnimation: 0
+    Animation:
+      Move:
+        AnimationType: 1
+        Enabled: 0
+        UseCustomFromAndTo: 0
+        From: {x: 0, y: 0, z: 0}
+        To: {x: 0, y: 0, z: 0}
+        By: {x: 0, y: 0, z: 0}
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        Direction: 0
+        CustomPosition: {x: 0, y: 0, z: 0}
+        Ease: 5
+        StartDelay: 0
+        Duration: 2
+      Rotate:
+        AnimationType: 1
+        Enabled: 0
+        From: {x: 60, y: 0, z: 0}
+        To: {x: 0, y: 0, z: 0}
+        By: {x: 0, y: 0, z: 0}
+        UseCustomFromAndTo: 0
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        RotateMode: 1
+        Ease: 1
+        StartDelay: 0
+        Duration: 1
+      Scale:
+        AnimationType: 1
+        Enabled: 1
+        From: {x: 0.5, y: 0.5, z: 0.5}
+        To: {x: 0, y: 0, z: 0}
+        By: {x: 0, y: 0, z: 0}
+        UseCustomFromAndTo: 0
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        Ease: 27
+        StartDelay: 0
+        Duration: 0.5
+      Fade:
+        AnimationType: 1
+        Enabled: 1
+        From: 0
+        To: 0
+        By: 0.5
+        UseCustomFromAndTo: 0
+        NumberOfLoops: -1
+        LoopType: 1
+        Ease: 1
+        StartDelay: 0
+        Duration: 0.2
+      AnimationType: 1
+    OnFinished:
+      Event:
+        m_PersistentCalls:
+          m_Calls: []
+      AudioName: -1
+    OnStart:
+      Event:
+        m_PersistentCalls:
+          m_Calls: []
+      AudioName: -1
+  HideBehavior:
+    InstantAnimation: 0
+    Animation:
+      Move:
+        AnimationType: 2
+        Enabled: 0
+        UseCustomFromAndTo: 0
+        From: {x: 0, y: 0, z: 0}
+        To: {x: 0, y: 0, z: 0}
+        By: {x: 0, y: 0, z: 0}
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        Direction: 0
+        CustomPosition: {x: 0, y: 0, z: 0}
+        Ease: 1
+        StartDelay: 0
+        Duration: 1
+      Rotate:
+        AnimationType: 2
+        Enabled: 0
+        From: {x: 0, y: 0, z: 0}
+        To: {x: 0, y: 0, z: 0}
+        By: {x: 0, y: 0, z: 0}
+        UseCustomFromAndTo: 0
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        RotateMode: 1
+        Ease: 1
+        StartDelay: 0
+        Duration: 1
+      Scale:
+        AnimationType: 2
+        Enabled: 1
+        From: {x: 0, y: 0, z: 0}
+        To: {x: 0.7, y: 0.7, z: 0.7}
+        By: {x: 0, y: 0, z: 0}
+        UseCustomFromAndTo: 0
+        Vibrato: 10
+        Elasticity: 1
+        NumberOfLoops: -1
+        LoopType: 1
+        Ease: 26
+        StartDelay: 0
+        Duration: 0.5
+      Fade:
+        AnimationType: 2
+        Enabled: 1
+        From: 0
+        To: 0
+        By: 0.5
+        UseCustomFromAndTo: 0
+        NumberOfLoops: -1
+        LoopType: 1
+        Ease: 1
+        StartDelay: 0
+        Duration: 0.5
+      AnimationType: 2
+    OnFinished:
+      Event:
+        m_PersistentCalls:
+          m_Calls: []
+      AudioName: -1
+    OnStart:
+      Event:
+        m_PersistentCalls:
+          m_Calls: []
+      AudioName: -1
+  CustomResourcesLocation: Assets/Scr/Resources/
+  _popupManager: {fileID: 0}
 --- !u!1 &4123291729797354481
 GameObject:
   m_ObjectHideFlags: 0

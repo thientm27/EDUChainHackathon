@@ -54,6 +54,7 @@ namespace Scr.Scripts.GameScene
             if (questionIndex == _questionData.Count)
             {
                 Debug.Log("END GAME");
+                EndGame();
                 return;
             }
             _quizView.SetQuestionProcess(questionIndex + 1,_questionData.Count );
@@ -77,6 +78,11 @@ namespace Scr.Scripts.GameScene
         public void ChooseCorrectAnswer()
         {
             NextQuestion();
+        }
+
+        public void EndGame()
+        {
+            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup);
         }
     }
 
