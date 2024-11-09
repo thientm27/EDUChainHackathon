@@ -60,7 +60,7 @@ namespace Scr.Scripts.UI.View
         }
         public void ShowQuestion(QuestionData questionData)
         {
-            Debug.Log(JsonConvert.SerializeObject(questionData));
+            Debug.Log(questionData.correctAnswer);
             questionContainer.SetActive(true);
             foreach (var btn in answerButton)
             {

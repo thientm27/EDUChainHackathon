@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Imba.UI;
 using Imba.Utils;
 using Newtonsoft.Json;
+using Scr.Scripts.UI.Popups;
 using Scr.Scripts.UI.View;
 using UnityEngine;
 
@@ -14,7 +16,9 @@ namespace Scr.Scripts.GameScene
         private                  List<QuestionData> _questionData;
 
         private QuizView _quizView;
+        private int      _correctAns      = 0;
         private int      _currentQuestion = 0;
+        private int      _userHeart       = 3;
 
         private void Start()
         {
@@ -25,6 +29,8 @@ namespace Scr.Scripts.GameScene
 
         public void InitGame()
         {
+            _userHeart = 3;
+            _quizView.SetHealth(_userHeart);
             ConvertJsonToQuestionData(jsonQuestionData.text);
             ShuffleQuestionBank();
             DisplayQuestion(_currentQuestion);
@@ -33,8 +39,23 @@ namespace Scr.Scripts.GameScene
         public void NextQuestion()
         {
             _currentQuestion++;
+            if (_userHeart == 0)
+            {
+                Debug.Log("END GAME: DEAD");
+                EndGame();
+                return;
+            }
+
+            if (_currentQuestion == _questionData.Count)
+            {
+                Debug.Log("END GAME");
+                EndGame();
+                return;
+            }
+
             DisplayQuestion(_currentQuestion);
         }
+
         public void ConvertJsonToQuestionData(string rawJson)
         {
             _questionData = JsonConvert.DeserializeObject<List<QuestionData>>(rawJson);
@@ -51,13 +72,7 @@ namespace Scr.Scripts.GameScene
 
         public void DisplayQuestion(int questionIndex)
         {
-            if (questionIndex == _questionData.Count)
-            {
-                Debug.Log("END GAME");
-                EndGame();
-                return;
-            }
-            _quizView.SetQuestionProcess(questionIndex + 1,_questionData.Count );
+            _quizView.SetQuestionProcess(questionIndex + 1, _questionData.Count);
             var data = _questionData[questionIndex];
             _quizView.ShowQuestion(new()
             {
@@ -72,17 +87,43 @@ namespace Scr.Scripts.GameScene
 
         public void ChooseWrongAnswer()
         {
-            NextQuestion();
+            StartCoroutine(WrongAnsHandler());
         }
 
         public void ChooseCorrectAnswer()
         {
+            StartCoroutine(CorrectAnsHandler());
+        }
+
+        public IEnumerator CorrectAnsHandler()
+        {
+            yield return new WaitForSeconds(1.5f);
+            _quizView.HideQuestion();
+            yield return new WaitForSeconds(0.5f);
             NextQuestion();
+            yield return null;
+        }
+
+        public IEnumerator WrongAnsHandler()
+        {
+            yield return new WaitForSeconds(1.5f);
+            _quizView.HideQuestion();
+            _userHeart--;
+            _quizView.SetHealth(_userHeart);
+            yield return new WaitForSeconds(0.5f);
+            NextQuestion();
+            yield return null;
         }
 
         public void EndGame()
         {
-            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup);
+            var earn = 0.1f * _correctAns;
+            UIManager.Instance.PopupManager.ShowPopup(UIPopupName.EndGamePopup, new EndGameParam
+            {
+                tokenWin   = earn,
+                correctAns = _correctAns,
+                maxQuest   = _questionData.Count
+            });
         }
     }
 
