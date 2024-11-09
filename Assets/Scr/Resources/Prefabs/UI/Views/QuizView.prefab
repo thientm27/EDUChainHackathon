@@ -810,6 +810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3184083959770509044}
+  - component: {fileID: 1068867044290024250}
   m_Layer: 5
   m_Name: QuestionContainer
   m_TagString: Untagged
@@ -838,6 +839,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 435.5}
   m_SizeDelta: {x: 0, y: 871}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1068867044290024250
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157030335610925509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cfccafe25008a1e4c8672312bfae0260, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4502011560492226502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,16 +1041,16 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8850886568374323394}
   m_Father: {fileID: 3285602469334255917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0081939, y: 0}
+  m_AnchoredPosition: {x: 0.008178711, y: -181.5}
   m_SizeDelta: {x: 363, y: 1409.2513}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1958422234287939946
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1312,11 +1334,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: this is a super very simple question that you can have in the world hahaha
+  m_text: This is a super very simple question that you can have in the world hahaha
     too easy heh? look, it's simple
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+  m_sharedMaterial: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1346,7 +1368,7 @@ MonoBehaviour:
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 65
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1624,6 +1646,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6920442627341767276, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7603396354194001843, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: StartPosition.x
       value: -373.49994
@@ -2861,6 +2899,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6920442627341767276, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7603396354194001843, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: StartPosition.x
       value: 365.59998
@@ -3996,6 +4050,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6920442627341767276, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7603396354194001843, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: StartPosition.x
       value: 365.59998
@@ -5127,6 +5197,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 6920442627341767276, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_text
+      value: 1234
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 443a333427119844c94ef9954bd0403a, type: 2}
+    - target: {fileID: 7532394278588029713, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2547785534257131398, guid: 443a333427119844c94ef9954bd0403a, type: 2}
     - target: {fileID: 7603396354194001843, guid: f41f22ec678c08d4d9432bade6f2d13e, type: 3}
       propertyPath: OnClick.OnTrigger.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
