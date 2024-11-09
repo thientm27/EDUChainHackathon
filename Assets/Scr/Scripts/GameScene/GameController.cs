@@ -29,6 +29,13 @@ namespace Scr.Scripts.GameScene
         public void SetSelectingAxieGroup(bool isActive)
         {
             selectingAxieGroup.SetActive(isActive);
+            if (!isActive)
+            {
+                if (currentSelectAxieModel)
+                {
+                    SimplePool.Despawn(currentSelectAxieModel);
+                }
+            }
         }
 
         public void SetSelectingAxie(string nameAxie)

@@ -5,6 +5,13 @@ namespace Scr.Scripts.UI.View
 {
     public class MenuView : UIView
     {
+        protected override void OnShown()
+        {
+            base.OnShown();
+            OnClickChar("Allue");
+            
+        }
+
         public void BTN_Setting()
         {
             UIManager.Instance.PopupManager.ShowPopup(UIPopupName.SettingPopup);
