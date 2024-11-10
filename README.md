@@ -9,8 +9,8 @@
 - If a player answers incorrectly three times, they will lose the game.
 - After the game, players can receive a token reward based on the number of correct answers they gave.
 # Game Review
-![alt text](https://github.com/thientm27/EDUChainHackathon/Pictures/1.png?raw=true)
-![alt text](https://github.com/thientm27/EDUChainHackathon/Pictures/2.png?raw=true)
-![alt text](https://github.com/thientm27/EDUChainHackathon/Pictures/3.png?raw=true)
-![alt text](https://github.com/thientm27/EDUChainHackathon/Pictures/4.png?raw=true)
+![alt text](https://github.com/thientm27/EDUChainHackathon/blob/main/Pictures/1.png?raw=true)
+![alt text](https://github.com/thientm27/EDUChainHackathon/blob/main/Pictures/2.png?raw=true)
+![alt text](https://github.com/thientm27/EDUChainHackathon/blob/main/Pictures/3.png?raw=true)
+![alt text](https://github.com/thientm27/EDUChainHackathon/blob/main/Pictures/4.png?raw=true)
  
