@@ -15,7 +15,6 @@ namespace Scr.Scripts.GameScene
         private void Start()
         {
             SceneManager.LoadScene("Scr/Scenes/GameScene");
-
         }
     }
 }

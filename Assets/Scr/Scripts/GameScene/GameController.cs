@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -27,7 +26,7 @@ namespace Scr.Scripts.GameScene
 
         [SerializeField] private SerializedDictionary<string, GameObject> axieModelConfig;
 
-        [SerializeField] private Transform playerStartPosition;
+        [SerializeField] private Transform playerTf;
 
         private string _userAxieSelected;
 
@@ -65,13 +64,11 @@ namespace Scr.Scripts.GameScene
                 }
 
                 currentSelectAxieModel =
-                    SimplePool.Spawn(modelAxie, playerStartPosition.transform.position, Quaternion.identity);
-                currentSelectAxieModel.transform.SetParent(playerStartPosition.transform);
+                    SimplePool.Spawn(modelAxie, playerTf.transform.position, Quaternion.identity);
+                currentSelectAxieModel.transform.SetParent(playerTf.transform);
                 currentSelectAxieModel.transform.localScale    = Vector3.one * 0.5f;
                 currentSelectAxieModel.transform.localRotation = Quaternion.identity;
             }
-
-            isMoving = true;
         }
 
         public void NextQuestion()
@@ -138,7 +135,9 @@ namespace Scr.Scripts.GameScene
             _correctAns++;
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
+            isMoving = true;
             yield return new WaitForSeconds(0.5f);
+            isMoving = false;
             NextQuestion();
             yield return null;
         }
@@ -149,7 +148,9 @@ namespace Scr.Scripts.GameScene
             _quizView.HideQuestion();
             _userHeart--;
             _quizView.SetHealth(_userHeart);
+            isMoving = true;
             yield return new WaitForSeconds(0.5f);
+            isMoving = false;
             NextQuestion();
             yield return null;
         }
@@ -210,9 +211,9 @@ namespace Scr.Scripts.GameScene
         {
             if (isMoving)
             {
-                var newPos = currentSelectAxieModel.transform.position;
-                newPos.x                                  += playerMoveSpeed * Time.deltaTime;
-                currentSelectAxieModel.transform.position =  newPos;
+                var newPos = playerTf.transform.position;
+                newPos.x                    += playerMoveSpeed * Time.deltaTime;
+                playerTf.transform.position =  newPos;
             }
         }
     }
