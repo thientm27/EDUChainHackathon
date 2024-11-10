@@ -403,6 +403,24 @@ MonoBehaviour:
     Source: {fileID: 0}
     IsLooping: 0
     PlayOnAwake: 0
+  - AudioName: 12
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: 943ee509db3f1724cb918f04a04d4f1f, type: 3}
+    Volume: 1
+    Priority: 128
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 0
+    PlayOnAwake: 0
+  - AudioName: 5
+    Type: 0
+    AudioClip: {fileID: 8300000, guid: de9445ba0b1f8f84da812b1fea076ba2, type: 3}
+    Volume: 1
+    Priority: 128
+    SpatialBlend: 0
+    Source: {fileID: 0}
+    IsLooping: 0
+    PlayOnAwake: 0
   _musicVolume: 0.5
   _audioVolume: 0.5
 --- !u!1 &1228752439

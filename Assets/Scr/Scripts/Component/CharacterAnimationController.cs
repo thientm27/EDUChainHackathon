@@ -10,6 +10,8 @@ namespace Scr.Scripts.Component
         private string _moveString = "action/run";
         private string _idleString = "action/idle/normal";
         private string _attack     = "attack/melee/multi-attack";
+        private string _gotAttack  = "defense/hit-by-normal";
+        private string _dead       = "defense/hit-by-normal-dramatic";
 
         private void Awake()
         {
@@ -29,6 +31,12 @@ namespace Scr.Scripts.Component
                 case CharacterState.Attack:
                     skeletonAnimation.state.SetAnimation(0, _attack, loop);
                     break;
+                case CharacterState.GotAttack:
+                    skeletonAnimation.state.SetAnimation(0, _gotAttack, loop);
+                    break;
+                case CharacterState.Dead:
+                    skeletonAnimation.state.SetAnimation(0, _dead, loop);
+                    break;
             }
         }
     }
@@ -37,6 +45,8 @@ namespace Scr.Scripts.Component
     {
         Idle,
         Walk,
-        Attack
+        Attack,
+        GotAttack,
+        Dead
     }
 }

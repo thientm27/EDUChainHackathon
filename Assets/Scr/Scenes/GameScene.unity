@@ -1022,6 +1022,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &828459659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828459660}
+  m_Layer: 0
+  m_Name: EndEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &828459660
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828459659}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000004371139}
+  m_LocalPosition: {x: -7.49, y: -1.367, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1726479957}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &936454070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,6 +1827,10 @@ MonoBehaviour:
     - Key: Wene
       Value: {fileID: 5130581329006268190, guid: 850c7cf6277ab5646863abe8db2a2ee1, type: 3}
   playerTf: {fileID: 1437284647}
+  enemyPostion: {fileID: 200920281}
+  enemySpawnPostion: {fileID: 178334020}
+  enemyEndPostion: {fileID: 828459660}
+  enemy: {fileID: 0}
   jsonQuestionData: {fileID: 4900000, guid: e197499277a73ac46ae90b05b9b2c682, type: 3}
   isMoving: 0
 --- !u!114 &1625031344
@@ -1913,6 +1948,7 @@ Transform:
   - {fileID: 437582825}
   - {fileID: 200920281}
   - {fileID: 178334020}
+  - {fileID: 828459660}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1726479958

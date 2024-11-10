@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using DG.Tweening;
+using Imba.Audio;
 using Imba.UI;
 using Imba.Utils;
 using Newtonsoft.Json;
@@ -36,6 +38,8 @@ namespace Scr.Scripts.GameScene
         [SerializeField] private Transform enemyPostion;
 
         [SerializeField] private Transform                    enemySpawnPostion;
+        [SerializeField] private Transform                    enemyEndPostion;
+        [SerializeField] private GameObject                   enemy;
         private                  CharacterAnimationController _characterEnemyAnimationController;
 
         [Header("GameCore")]
@@ -63,7 +67,6 @@ namespace Scr.Scripts.GameScene
             DisplayQuestion(_currentQuestion);
 
             // TO MOVE
-
             if (axieModelConfig.TryGetValue(_userAxieSelected, out var modelAxie))
             {
                 if (currentSelectAxieModel)
@@ -78,10 +81,13 @@ namespace Scr.Scripts.GameScene
                 currentSelectAxieModel.transform.localRotation = Quaternion.identity;
                 _characterAnimationController = currentSelectAxieModel.GetComponent<CharacterAnimationController>();
             }
+
+            SpawnEnemyAxie();
         }
 
         public void NextQuestion()
         {
+            SpawnEnemyAxie();
             _currentQuestion++;
             if (_userHeart == 0)
             {
@@ -131,11 +137,13 @@ namespace Scr.Scripts.GameScene
 
         public void ChooseWrongAnswer()
         {
+            AudioManager.Instance.PlaySFX(AudioName.Click2);
             StartCoroutine(WrongAnsHandler());
         }
 
         public void ChooseCorrectAnswer()
         {
+            AudioManager.Instance.PlaySFX(AudioName.PowerUpBright);
             StartCoroutine(CorrectAnsHandler());
         }
 
@@ -145,8 +153,23 @@ namespace Scr.Scripts.GameScene
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
             SetMovePlayer(true);
+
+            // Move enemy 
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
+            enemy.transform.DOMoveX(playerTf.position.x + 1.5f * playerMoveSpeed + 1f, 1.5f).SetEase(Ease.Linear);
             yield return new WaitForSeconds(1.5f);
+            // PLAYER ATTACK
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Dead, false);
             SetMovePlayer(false);
+            _characterAnimationController.SetAnimation(CharacterState.Attack, false);
+
+            yield return new WaitForSeconds(0.5f);
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
+            var tempEnemy = enemy;
+            tempEnemy.transform.DOMoveX(enemyEndPostion.transform.position.x, 0.5f).SetEase(Ease.Linear)
+                .OnComplete(() => { Destroy(tempEnemy); });
+
+
             NextQuestion();
             yield return null;
         }
@@ -158,8 +181,24 @@ namespace Scr.Scripts.GameScene
             _userHeart--;
             _quizView.SetHealth(_userHeart);
             SetMovePlayer(true);
+
+            // Move enemy 
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
+            enemy.transform.DOMoveX(playerTf.position.x + 1.5f * playerMoveSpeed + 1f, 1.5f).SetEase(Ease.Linear);
             yield return new WaitForSeconds(1.5f);
+
+            // ENEMY ATTACK
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Attack, false);
             SetMovePlayer(false);
+            _characterAnimationController.SetAnimation(CharacterState.GotAttack, false);
+
+            yield return new WaitForSeconds(0.5f);
+            _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
+            var tempEnemy = enemy;
+            tempEnemy.transform.DOMoveX(enemyEndPostion.transform.position.x, 0.5f).SetEase(Ease.Linear)
+                .OnComplete(() => { Destroy(tempEnemy); });
+
+
             NextQuestion();
             yield return null;
         }
@@ -175,6 +214,7 @@ namespace Scr.Scripts.GameScene
             });
         }
 
+        // VIEW FLOW //
         public void SetDemoAxieGroup(bool isActive)
         {
             demoAxieGroup.SetActive(isActive);
@@ -214,6 +254,7 @@ namespace Scr.Scripts.GameScene
             }
         }
 
+        // Moving //
         public void SetMovePlayer(bool isMove)
         {
             isMoving = isMove;
@@ -231,13 +272,37 @@ namespace Scr.Scripts.GameScene
                 playerTf.transform.position =  newPos;
             }
         }
-    }
 
-    public class QuestionData
-    {
-        public int          QuestionId { get; set; }
-        public string       Question   { get; set; }
-        public List<string> Options    { get; set; }
-        public int          Answer     { get; set; }
+        public void SpawnEnemyAxie()
+        {
+            // Get a random key from axieModelConfig dictionary
+            var keys        = new List<string>(axieModelConfig.Keys);
+            int randomIndex = Random.Range(0, keys.Count);
+            var keyRd       = keys[randomIndex];
+
+            // Proceed as usual to spawn the enemy Axie with the random selection
+            if (axieModelConfig.TryGetValue(keyRd, out var modelAxie))
+            {
+                enemy = Instantiate(modelAxie, enemySpawnPostion.transform.position, Quaternion.identity);
+                enemy.transform.localScale = Vector3.one * 0.5f;
+                enemy.transform.localRotation = Quaternion.identity;
+
+                _characterEnemyAnimationController = enemy.GetComponent<CharacterAnimationController>();
+                _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
+
+                enemy.transform.DOMove(enemyPostion.transform.position, 0.5f).OnComplete(() =>
+                {
+                    _characterEnemyAnimationController.SetAnimation(CharacterState.Idle, true);
+                });
+            }
+        }
+
+        public class QuestionData
+        {
+            public int          QuestionId { get; set; }
+            public string       Question   { get; set; }
+            public List<string> Options    { get; set; }
+            public int          Answer     { get; set; }
+        }
     }
 }
