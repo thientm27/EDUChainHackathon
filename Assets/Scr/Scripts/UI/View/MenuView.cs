@@ -29,6 +29,7 @@ namespace Scr.Scripts.UI.View
         {
             Hide();
             GameController.Instance.SetDemoAxieGroup(true);
+            GameController.Instance.SetSelectingAxieGroup(false);
             UIManager.Instance.ViewManager.ShowView(UIViewName.MainView);
         }
         public void OnClickChar(string nameAxie)

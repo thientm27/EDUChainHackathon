@@ -4,6 +4,7 @@ using AYellowpaper.SerializedCollections;
 using Imba.UI;
 using Imba.Utils;
 using Newtonsoft.Json;
+using Scr.Scripts.Component;
 using Scr.Scripts.UI.Popups;
 using Scr.Scripts.UI.View;
 using UnityEngine;
@@ -28,7 +29,14 @@ namespace Scr.Scripts.GameScene
 
         [SerializeField] private Transform playerTf;
 
-        private string _userAxieSelected;
+        private CharacterAnimationController _characterAnimationController;
+        private string                       _userAxieSelected;
+
+        [Header("AxieEnemyControl")]
+        [SerializeField] private Transform enemyPostion;
+
+        [SerializeField] private Transform                    enemySpawnPostion;
+        private                  CharacterAnimationController _characterEnemyAnimationController;
 
         [Header("GameCore")]
         [SerializeField] private TextAsset jsonQuestionData;
@@ -66,8 +74,9 @@ namespace Scr.Scripts.GameScene
                 currentSelectAxieModel =
                     SimplePool.Spawn(modelAxie, playerTf.transform.position, Quaternion.identity);
                 currentSelectAxieModel.transform.SetParent(playerTf.transform);
-                currentSelectAxieModel.transform.localScale    = Vector3.one * 0.5f;
+                currentSelectAxieModel.transform.localScale = Vector3.one * 0.5f;
                 currentSelectAxieModel.transform.localRotation = Quaternion.identity;
+                _characterAnimationController = currentSelectAxieModel.GetComponent<CharacterAnimationController>();
             }
         }
 
@@ -135,9 +144,9 @@ namespace Scr.Scripts.GameScene
             _correctAns++;
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
-            isMoving = true;
-            yield return new WaitForSeconds(0.5f);
-            isMoving = false;
+            SetMovePlayer(true);
+            yield return new WaitForSeconds(1.5f);
+            SetMovePlayer(false);
             NextQuestion();
             yield return null;
         }
@@ -148,9 +157,9 @@ namespace Scr.Scripts.GameScene
             _quizView.HideQuestion();
             _userHeart--;
             _quizView.SetHealth(_userHeart);
-            isMoving = true;
-            yield return new WaitForSeconds(0.5f);
-            isMoving = false;
+            SetMovePlayer(true);
+            yield return new WaitForSeconds(1.5f);
+            SetMovePlayer(false);
             NextQuestion();
             yield return null;
         }
@@ -203,6 +212,12 @@ namespace Scr.Scripts.GameScene
             {
                 Debug.Log("NOT FOUND FOR: " + nameAxie);
             }
+        }
+
+        public void SetMovePlayer(bool isMove)
+        {
+            isMoving = isMove;
+            _characterAnimationController.SetAnimation(isMoving ? CharacterState.Walk : CharacterState.Idle, true);
         }
 
         public bool isMoving;
