@@ -83,10 +83,12 @@ namespace Scr.Scripts.GameScene
             }
 
             SpawnEnemyAxie();
+            StartClock();
         }
 
         public void NextQuestion()
         {
+            StartClock();
             SpawnEnemyAxie();
             _currentQuestion++;
             if (_userHeart == 0)
@@ -149,6 +151,7 @@ namespace Scr.Scripts.GameScene
 
         public IEnumerator CorrectAnsHandler()
         {
+            StopClock();
             _correctAns++;
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
@@ -166,8 +169,7 @@ namespace Scr.Scripts.GameScene
             yield return new WaitForSeconds(0.5f);
             _characterEnemyAnimationController.SetAnimation(CharacterState.Walk, true);
             var tempEnemy = enemy;
-            tempEnemy.transform.DOMoveX(enemyEndPostion.transform.position.x, 0.5f).SetEase(Ease.Linear)
-                .OnComplete(() => { Destroy(tempEnemy); });
+            Destroy(tempEnemy);
 
 
             NextQuestion();
@@ -176,6 +178,7 @@ namespace Scr.Scripts.GameScene
 
         public IEnumerator WrongAnsHandler()
         {
+            StopClock();
             yield return new WaitForSeconds(1.5f);
             _quizView.HideQuestion();
             _userHeart--;
@@ -270,6 +273,46 @@ namespace Scr.Scripts.GameScene
                 var newPos = playerTf.transform.position;
                 newPos.x                    += playerMoveSpeed * Time.deltaTime;
                 playerTf.transform.position =  newPos;
+            }
+        }
+
+        private IEnumerator _clockIe;
+
+        private int quesTime = 60;
+        private int _currentTime;
+
+        public void StartClock()
+        {
+            if (_clockIe != null)
+            {
+                StopCoroutine(_clockIe);
+            }
+
+            _currentTime = quesTime;
+            _clockIe     = Clocking();
+            StartCoroutine(_clockIe);
+        }
+
+        public void StopClock()
+        {
+            if (_clockIe != null)
+            {
+                StopCoroutine(_clockIe);
+            }
+        }
+
+        public IEnumerator Clocking()
+        {
+            while (_currentTime >= 0)
+            {
+                _quizView.SetClock(_currentTime);
+                _currentTime--;
+                yield return new WaitForSeconds(1);
+                if (_currentTime == -1)
+                {
+                    _quizView.HideQuestion();
+                    EndGame();
+                }
             }
         }
 
